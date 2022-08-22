@@ -1,14 +1,24 @@
+//import package untuk menginport file utama
 import 'package:flutter/material.dart';
+
+//import package dari google berupa fontawesome
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:polygon_clipper/polygon_clipper.dart';
 
+ //runApp menerima suatu widget yaitu MaterialApp
 void main() => runApp(MyApp());
-
+//membuat class MyApp
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    //Widget MaterialApp berfungsi sebagai root atau
+      //akar dari semua widget yang lain.
     return MaterialApp(
+      //untuk menunjukkan bahwa aplikasi dalam mode debug.
+        // Ini aktif secara default (dalam mode debug),
+        // untuk mematikannya, setel argumen konstruktor ke false.
       debugShowCheckedModeBanner: false,
+      //menampilkan title pada bgian atas
       title: 'Jogja Food',
       home: MyHomePage(),
     );
@@ -16,6 +26,7 @@ class MyApp extends StatelessWidget {
 }
 
 // IMAGES
+//mendapatkan gambar dari google
 var meatImage =
     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxWuU6x1WwvQKxleC00DPX9GX98YhmhcAmyRrj-9fBw90lGhaB9q8g6xE3q3ATpxAXQGc&usqp=CAU';
 var foodImage =
@@ -39,7 +50,10 @@ var redLight = Color(0xFFf2dcdf);
 var blue = Color(0xFF6200ea);
 var blueLight = Color(0xFFc1dbee);
 
+
+//class baru yang mana pada class ini akan memanggil fungsi dari kelas lain
 class MyHomePage extends StatelessWidget {
+   //berfungsi untuk mengembalikan sebuah objek Widget
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,8 +61,10 @@ class MyHomePage extends StatelessWidget {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: MyAppbar(),
       body: Container(
+        //listview untuk mengurutkan widget
         child: ListView(
           children: <Widget>[
+            //ukuran box
             SizedBox(height: 16.0),
             MyAppBar(),
             SizedBox(height: 16.0),
@@ -63,15 +79,17 @@ class MyHomePage extends StatelessWidget {
     );
   }
 }
-
+//class baru yang mana pada class ini akan memanggil fungsi dari kelas lain
 class MyAppbar extends StatelessWidget {
   const MyAppbar({
+    //sebagai kunci dalam memanggil widget
     Key key,
   }) : super(key: key);
-
+   //berfungsi untuk mengembalikan sebuah objek Widget
   @override
   Widget build(BuildContext context) {
     return BottomAppBar(
+      //mengatur container seperti hanya css
       child: Container(
         height: 60.0,
         child: Padding(
@@ -80,8 +98,10 @@ class MyAppbar extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
+              //membuat colom utama
               Column(
                 children: <Widget>[
+                  //memanggil witget dan menampilkan icon
                   Icon(Icons.star),
                   Text('Bantul', style: TextStyle(fontSize: 12.0))
                 ],
@@ -178,7 +198,7 @@ class MenuItemsList extends StatelessWidget {
     );
   }
 }
-
+//class baru yang mana pada class ini akan memanggil fungsi dari kelas lain
 class MenuItem extends StatelessWidget {
   const MenuItem({
     Key key,
@@ -225,6 +245,7 @@ class MenuItem extends StatelessWidget {
                       ),
                     ),
                   ),
+                  //mengatur ukuran box dan menampilkan text dan gambar
                   SizedBox(
                     height: 8.0,
                   ),
@@ -335,7 +356,7 @@ class SelectTypeSection extends StatelessWidget {
     );
   }
 }
-
+//class baru bernama foodlistview yang berfungsi sebagai peletak
 class FoodListview extends StatelessWidget {
   const FoodListview({
     Key key,
